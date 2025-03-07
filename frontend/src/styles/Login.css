@@ -1,0 +1,268 @@
+/*  ============== 공통요소 감싸서 중앙에 배치하기 위해서 ==============  */
+.container {
+  margin: 0 auto;
+  width: 600px;
+  height: 100%;
+}
+
+.login-wrap {
+  margin: 0 auto;
+  width: 420px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ==============  로고 영역 ============== */
+.header {
+  padding: 60px;
+}
+
+.header__title {
+  font-family: "DahilaBold";
+  font-size: 55px;
+  color: var(--main-color);
+}
+
+/*  ============== 아이디, 비밀번호 입력창 ==============  */
+.login-form {
+  width: 100%;
+}
+
+.login-form__input-group {
+  margin-bottom: 15px;
+  display: flex;
+}
+
+.login-form__input {
+  width: 100%;
+  height: 50px;
+  border-radius: 4px;
+  border: 1px solid var(--input-color);
+  padding: 12px;
+}
+
+/* input창 내부 메시지 */
+.login-form__input::placeholder {
+  font-family: "PretendardMedium";
+  font-size: 14px;
+  color: var(--input-placeholder-color);
+}
+
+/* 아이콘 넣기 */
+/* 아이콘 스타일링 */
+
+.login-form__icon {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  /* 여기까지 공통요소 */
+}
+
+.login-form__icon--close {
+  background-image: url(../assets/icons/close-circle-outline.svg);
+}
+
+.login-form__icon--eye {
+  background-image: url(../assets/icons/eye-outline.svg);
+}
+
+.login-form__icon--eye_close {
+  background-image: url(../assets/icons/eye-off-outline.svg);
+}
+
+/* 아이콘 위치 잡기 */
+
+.login-form__input-group--email {
+  position: relative;
+}
+
+.login-form__button--close_email {
+  position: absolute;
+  right: 8px;
+  top: 15px;
+}
+
+.login-form__input-group--password {
+  position: relative;
+}
+
+.login-form__button--close_password,
+.login-form__button--eye {
+  position: absolute;
+  top: 15px;
+}
+
+.login-form__button--close_password {
+  right: 8px;
+}
+
+.login-form__button--eye {
+  right: 42px;
+}
+
+/*  ============== 로그인 상태 유지하기 영역 ==============  */
+
+/* 영역 잡기 */
+.login-form__auto-login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+/* 텍스트 */
+.login-form__auto-login-text {
+  font-family: "PretendardMedium";
+  font-size: 13px;
+  color: var(--auto-login-text-color);
+  margin-left: 5px;
+}
+
+/* 체크박스 커스텀 */
+/* 기본 체크박스 숨기기 */
+.login-form__checkbox {
+  display: none;
+}
+
+/* 동그란 원 모양 만들기*/
+.login-form__custom-checkbox {
+  width: 18px;
+  height: 18px;
+  border: 1px solid var(--login-icon-color);
+  border-radius: 50%;
+  position: relative;
+}
+
+/* 체크 모양 만들어서 원 안에 위치시키기 */
+.login-form__custom-checkbox::before {
+  content: "";
+  position: absolute;
+  box-sizing: border-box;
+  width: 30%;
+  height: 55%;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-45%) translateY(-60%) rotateZ(40deg);
+  border-right: 1.7px solid var(--login-icon-color);
+  border-bottom: 1.7px solid var(--login-icon-color);
+}
+
+/* 체크 상태일 때 스타일 */
+/* 원 모양 */
+.login-form__checkbox:checked + .login-form__custom-checkbox {
+  background-color: var(--main-color);
+  border-color: var(--main-color);
+}
+
+/* before가상요소 선택(체크 모양) */
+.login-form__checkbox:checked + .login-form__custom-checkbox::before {
+  border-color: var(--white-color);
+}
+
+/*  ============== 로그인 옵션 영역 ==============  */
+.login-form__actions {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  margin-top: 17px;
+}
+
+.login-form__links {
+  display: flex;
+  align-items: center;
+}
+
+.login-form__link {
+  font-family: "PretendardMedium";
+  color: var(--login-option-text-color);
+  letter-spacing: 0.02em;
+  font-size: 12px;
+  position: relative;
+  /* padding-right: 8px; */
+  margin-left: 10px;
+}
+
+.login-form__link--separator::after {
+  content: "";
+  height: 13px;
+  width: 0.1em;
+  position: absolute;
+  top: 50%;
+  right: -6px; /* 구분선 위치를 링크 오른쪽에 배치 */
+  transform: translateY(-50%); /* 세로 가운데 정렬 */
+  background-color: var(--login-option-separator-color);
+}
+
+/* ============== 로그인 버튼 ==============  */
+.login-form__submit-button {
+  /* width: 420px; */
+  width: 100%;
+  height: 50px;
+  margin-top: 37px;
+  border-radius: 4px;
+  background-color: var(--main-color);
+  opacity: 0.3;
+  font-family: "PretendardMedium";
+  font-size: 20px;
+  color: var(--white-color);
+}
+
+/* ============== 소셜 로그인 ==============  */
+
+.login-form__social {
+  width: 100%;
+  margin-top: 17px;
+}
+
+/* 로그인 글자 영역 */
+.login-form__social-header {
+  position: relative;
+  text-align: center;
+}
+
+/* 구분선 */
+.login-form__social-header::before {
+  content: "";
+  position: absolute;
+  top: 30px;
+  right: 0;
+  left: 0;
+  /* display: block; */
+  height: 1px;
+  background-color: var(--input-color);
+}
+
+/* 텍스트 */
+.login-form__social-title {
+  position: relative;
+  top: 22px;
+  background-color: var(--white-color);
+  padding: 20px;
+  color: var(--auto-login-text-color);
+  font-family: "PretendardMedium";
+  font-size: 15px;
+}
+
+/* 소셜로그인 버튼 */
+.login-form__social-list {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 50px;
+}
+
+.login-form__social-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  font-family: "PretendardRegular";
+  font-size: 13px;
+  letter-spacing: 0.02em;
+}
+
+.login-form__social-button-img--google {
+  width: 50px;
+  height: 50px;
+}
